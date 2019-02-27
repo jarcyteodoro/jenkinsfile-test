@@ -4,7 +4,7 @@ pipeline {
     tools {
     	maven 'MAVEN_DEFAULT'
     }
-
+    
     stages {
 	stage('SCM') {
 	     steps {
