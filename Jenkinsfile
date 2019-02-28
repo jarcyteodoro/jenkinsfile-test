@@ -15,7 +15,7 @@ pipeline {
           stage('Build, JUnit and JaCoCo') { 
                steps {
                     echo "Building..."
-                    sh 'mvn clean test surefire-report:report veriy package' 
+                    sh 'mvn clean test surefire-report:report verify package' 
                }
           }
 
