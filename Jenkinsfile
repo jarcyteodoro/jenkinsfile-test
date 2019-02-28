@@ -5,6 +5,8 @@ pipeline {
     	     maven 'MAVEN_DEFAULT'
      }
     
+     options { timestamps () }
+
      stages {
           stage('SCM') {
 	          steps {
