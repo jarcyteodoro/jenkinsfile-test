@@ -37,7 +37,7 @@ pipeline {
           stage('Upload Artifact/s to Nexus') {
                steps {
                     echo "##### Uploading to Nexus #####"
-                    sh label: 'Uploading to Nexus', script: 'curl -v -u admin:admin123 --upload-file target/calculator-unit-test-example-java-1.0.jar http://nexus:8081/repository/maven-releases/Sample-Java-Project/calculator-unit-test-example-java-1.0.jar'
+                    sh label: 'Uploading to Nexus', script: 'curl -v -u admin:admin123 --upload-file target/calculator-unit-test-example-java-1.0.jar http://nexus:8081/repository/maven-releases/Sample-Java-Project/1.0/calculator-unit-test-example-java-1.0.jar'
                }
           }
     }
