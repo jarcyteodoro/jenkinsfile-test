@@ -14,7 +14,7 @@ pipeline {
 
           stage('Build, JUnit and JaCoCo') { 
                steps {
-	               echo "Building..."
+                    echo "Building..."
                     sh 'mvn -B test clean package' 
                }
           }
