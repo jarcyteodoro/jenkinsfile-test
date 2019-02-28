@@ -15,7 +15,7 @@ pipeline {
           stage('Build, JUnit and JaCoCo') { 
                steps {
                     echo "Building..."
-                    sh 'mvn clean test surefire-report:report org.jacoco:jacoco-maven-plugin:0.7.8:report install package' 
+                    sh 'mvn clean test surefire-report:report org.jacoco:jacoco-maven-plugin:0.8.4-SNAPSHOT:prepare-agent org.jacoco:jacoco-maven-plugin:0.8.4-SNAPSHOT:report install package' 
                }
           }
 
