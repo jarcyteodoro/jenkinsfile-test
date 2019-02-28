@@ -18,5 +18,11 @@ pipeline {
                     sh 'mvn clean test surefire-report:report package' 
                }
           }
+
+          stage('Post-build Actions') {
+               steps {
+                    junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
+               }
+          }
     }
 }
