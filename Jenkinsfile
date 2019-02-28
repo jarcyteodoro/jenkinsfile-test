@@ -7,6 +7,8 @@ pipeline {
     
      options { timestamps () }
 
+     deleteDir()
+
      stages {
           stage('SCM') {
 	          steps {
