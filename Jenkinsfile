@@ -22,14 +22,22 @@ pipeline {
 
           stage('Build, JUnit and JaCoCo') { 
                steps {
-                    echo "Building..."
+                    echo "##### Building and Executing Unit Tests #####"
                     sh 'mvn clean org.jacoco:jacoco-maven-plugin:0.8.2:prepare-agent test org.jacoco:jacoco-maven-plugin:0.8.2:report install package' 
                }
           }
 
-          stage('Post-build Actions') {
+          stage('Publish JUnit Report') {
                steps {
+                    echo "##### Publishing JUnit Report #####"
                     junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
+               }
+          }
+
+          stage('Upload Artifact/s to Nexus') {
+               steps {
+                    echo "##### Uploading to Nexus #####"
+                    sh label: 'Uploading to Nexus', script: 'curl -v -u admin:admin123 --upload-file target/calculator-unit-test-example-java-1.0-SNAPSHOT.jar http://localhost:8081/repository/maven-releases/Sample-Java-Project/
                }
           }
     }
